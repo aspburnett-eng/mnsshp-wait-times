@@ -26,6 +26,7 @@ EASTERN = ZoneInfo("America/New_York")
 # ------------------------------------------------------------
 
 MNSSHP_DATES = {
+    "2026-08-15",  # TEST NIGHT - exclude from MNSSHP analysis
     "2026-08-18",
     "2026-08-21",
     "2026-08-23",
