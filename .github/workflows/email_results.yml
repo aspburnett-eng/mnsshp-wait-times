@@ -1,0 +1,111 @@
+name: Email MNSSHP Results
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: "Send a test email now"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+
+jobs:
+  email-results:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Email wait-time CSV
+        env:
+          GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TEST_MODE: ${{ github.event.inputs.test_mode }}
+        run: |
+          python - <<'PY'
+          import os
+          import smtplib
+          from datetime import datetime, timedelta
+          from email.message import EmailMessage
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          PARTY_DATES = {
+              "2026-08-18",
+              "2026-08-21",
+              "2026-08-23",
+              "2026-08-25",
+              "2026-08-28",
+              "2026-08-30",
+              "2026-09-01",
+          }
+
+          EASTERN = ZoneInfo("America/New_York")
+          now = datetime.now(EASTERN)
+
+          test_mode = os.environ.get("TEST_MODE", "false").lower() == "true"
+
+          yesterday = (now - timedelta(days=1)).strftime("%Y-%m-%d")
+
+          print(f"Current Eastern time: {now.isoformat()}")
+          print(f"Test mode: {test_mode}")
+          print(f"Yesterday: {yesterday}")
+
+          if not test_mode and yesterday not in PARTY_DATES:
+              print("Yesterday was not one of our MNSSHP collection nights.")
+              print("No email will be sent.")
+              raise SystemExit(0)
+
+          csv_path = Path("data/magic_kingdom_waits.csv")
+
+          if not csv_path.exists():
+              raise FileNotFoundError(
+                  "data/magic_kingdom_waits.csv does not exist."
+              )
+
+          username = os.environ["GMAIL_USERNAME"]
+          app_password = os.environ["GMAIL_APP_PASSWORD"]
+
+          if test_mode:
+              subject = "MNSSHP Wait-Time Tracker TEST"
+              body = (
+                  "This is a test of the MNSSHP nightly email system.\n\n"
+                  "Attached is the current Magic Kingdom wait-time CSV."
+              )
+              filename = "magic_kingdom_waits_TEST.csv"
+          else:
+              subject = f"MNSSHP Wait-Time Data - {yesterday}"
+              body = (
+                  f"MNSSHP wait-time collection completed for {yesterday}.\n\n"
+                  "Attached is the current master Magic Kingdom wait-time dataset."
+              )
+              filename = f"magic_kingdom_waits_through_{yesterday}.csv"
+
+          msg = EmailMessage()
+          msg["Subject"] = subject
+          msg["From"] = username
+          msg["To"] = username
+          msg.set_content(body)
+
+          with csv_path.open("rb") as f:
+              msg.add_attachment(
+                  f.read(),
+                  maintype="text",
+                  subtype="csv",
+                  filename=filename,
+              )
+
+          with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+              server.login(username, app_password)
+              server.send_message(msg)
+
+          print("Email sent successfully.")
+          PY
