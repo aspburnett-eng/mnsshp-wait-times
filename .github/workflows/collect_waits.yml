@@ -40,5 +40,10 @@ jobs:
             echo "No new wait-time data to commit."
           else
             git commit -m "Update Magic Kingdom wait times"
-            git push
+
+            # Pull any newer repository changes and replay
+            # this wait-time commit on top of them.
+            git pull --rebase origin main
+
+            git push origin main
           fi
