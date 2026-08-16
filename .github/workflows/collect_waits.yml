@@ -2,12 +2,9 @@ name: Collect MNSSHP Wait Times
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "*/5 * * * *"
 
 permissions:
   contents: write
-
 jobs:
   collect:
     runs-on: ubuntu-latest
