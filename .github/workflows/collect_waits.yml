@@ -5,9 +5,6 @@ on:
   schedule:
     - cron: "*/5 * * * *"
 
-  # Allows us to test it manually from the Actions tab.
-  workflow_dispatch:
-
 permissions:
   contents: write
 
