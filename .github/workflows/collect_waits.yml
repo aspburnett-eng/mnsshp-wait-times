@@ -5,8 +5,7 @@ on:
     # GitHub cron uses UTC.
     # 20:03-03:48 UTC = 4:03 PM-11:48 PM EDT
     # Runs every 15 minutes during our collection window.
-    - cron: '3,18,33,48 20-23 * * *'
-    - cron: '3,18,33,48 0-3 * * *'
+   - cron: '*/5 * * * *'
 
   # Allows us to test it manually from the Actions tab.
   workflow_dispatch:
