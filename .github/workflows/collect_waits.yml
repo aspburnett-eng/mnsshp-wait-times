@@ -5,6 +5,11 @@ on:
 
 permissions:
   contents: write
+
+  concurrency:
+  group: mnsshp-wait-collector
+  cancel-in-progress: false
+  
 jobs:
   collect:
     runs-on: ubuntu-latest
