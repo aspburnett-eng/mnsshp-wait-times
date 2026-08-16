@@ -17,6 +17,7 @@ DATA_FILE = Path("data/party_events.csv")
 EASTERN = ZoneInfo("America/New_York")
 
 COLLECTION_DATES = {
+    "2026-08-15",  # TEST NIGHT - remove after testing
     "2026-08-18",
     "2026-08-21",
     "2026-08-23",
