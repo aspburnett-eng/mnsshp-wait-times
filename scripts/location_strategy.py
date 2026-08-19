@@ -1,18 +1,8 @@
 #!/usr/bin/env python3
-"""First-pass MNSSHP location-aware strategy engine.
+"""MNSSHP location-aware strategy engine.
 
-Reads:
-  data/magic_kingdom_waits.csv
-  data/party_events.csv
-  data/location_reference.json
-
-Writes:
-  data/location_strategy.json
-
-The model intentionally separates sourced facts from planning estimates.
-Parade zone passage offsets and walking times are configurable in the
-location reference file and should be calibrated as better data becomes
-available.
+Reads wait snapshots, party entertainment, and static location reference data.
+Writes data/location_strategy.json with best-next-ride rankings by parade viewing zone.
 """
 
 from __future__ import annotations
@@ -30,21 +20,8 @@ WAITS = DATA / "magic_kingdom_waits.csv"
 EVENTS = DATA / "party_events.csv"
 LOC = DATA / "location_reference.json"
 OUT = DATA / "location_strategy.json"
-
 PARADE_NAME_MATCH = "boo-to-you"
-DEFAULT_PARADE_DURATION_MIN = 20
-
-# First-pass zone timing offsets. Frontierland is the anchor.
-# Main Street is anchored near +10 min by recent published guidance.
-# Intermediate offsets are explicitly planning estimates.
-DEFAULT_PASSAGE_OFFSETS = {
-    "frontierland_west": 0,
-    "frontierland_east": 2,
-    "liberty_square": 5,
-    "hub": 8,
-    "main_street": 10,
-    "town_square": 13,
-}
+WAIT_LOOKUP_TOLERANCE_MIN = 20
 
 
 def parse_iso(value: str) -> datetime:
@@ -81,38 +58,53 @@ def shortest_walk(graph, start, end):
         seen[node] = cost
         if node == end:
             return cost
-        for nxt, w in graph.get(node, []):
+        for nxt, weight in graph.get(node, []):
             if nxt not in seen:
-                heapq.heappush(pq, (cost + w, nxt))
+                heapq.heappush(pq, (cost + weight, nxt))
     return None
 
 
-def nearest_wait(rows, ride_name, target_dt, max_minutes=20):
+def nearest_wait(rows, ride_name, target_dt, max_minutes=WAIT_LOOKUP_TOLERANCE_MIN):
     candidates = []
-    for r in rows:
-        if r.get("ride_name") != ride_name or not r.get("posted_wait_minutes"):
+    for row in rows:
+        if row.get("ride_name") != ride_name or not row.get("posted_wait_minutes"):
+            continue
+        if row.get("status") and row.get("status") != "OPERATING":
             continue
         try:
-            dt = parse_iso(r["snapshot_time"])
-            wait = float(r["posted_wait_minutes"])
+            dt = parse_iso(row["snapshot_time"])
+            wait = float(row["posted_wait_minutes"])
         except Exception:
             continue
         delta = abs((dt - target_dt).total_seconds()) / 60.0
         if delta <= max_minutes:
-            candidates.append((delta, dt, wait, r.get("status")))
+            candidates.append((delta, dt, wait))
     if not candidates:
         return None
     candidates.sort(key=lambda x: x[0])
-    _, dt, wait, status = candidates[0]
-    return {"snapshot_time": dt.isoformat(), "posted_wait_min": wait, "status": status}
+    delta, dt, wait = candidates[0]
+    return {
+        "snapshot_time": dt.isoformat(),
+        "posted_wait_min": wait,
+        "snapshot_delta_min": round(delta, 1),
+    }
 
 
 def parade_starts(events, party_date):
-    starts = []
-    for e in events:
-        name = (e.get("event_name") or "").lower()
-        if e.get("party_date") == party_date and PARADE_NAME_MATCH in name and e.get("show_start_time"):
-            starts.append(parse_iso(e["show_start_time"]))
+    """Return unique parade show times for a party date.
+
+    party_events.csv repeats the same show schedule on multiple snapshots,
+    so deduplication is required before strategy generation.
+    """
+    starts = set()
+    for event in events:
+        name = (event.get("event_name") or "").lower()
+        if (
+            event.get("party_date") == party_date
+            and PARADE_NAME_MATCH in name
+            and event.get("show_start_time")
+        ):
+            starts.add(parse_iso(event["show_start_time"]))
     return sorted(starts)
 
 
@@ -120,63 +112,100 @@ def build():
     waits = load_csv(WAITS)
     events = load_csv(EVENTS)
     loc = load_json(LOC)
+
+    parade_cfg = loc["parades"]["Mickey's Boo-To-You Halloween Parade"]
+    parade_duration = float(parade_cfg["duration_min"])
+    passage_offsets = {k: float(v) for k, v in parade_cfg["passage_offset_min"].items()}
+
     graph = graph_from_location(loc)
     attraction_zone = {a["name"]: a["zone"] for a in loc["attractions"]}
     viewing_zones = [z["id"] for z in loc["zones"] if z["type"] == "viewing_zone"]
 
-    party_dates = sorted({r["party_date"] for r in waits if r.get("party_date") and r["party_date"] >= "2026-08-18"})
+    party_dates = sorted(
+        {
+            row["party_date"]
+            for row in waits
+            if row.get("party_date") and row["party_date"] >= "2026-08-18"
+        }
+    )
+
     result = {
-        "model_version": 1,
-        "generated_from": [str(WAITS.relative_to(ROOT)), str(EVENTS.relative_to(ROOT)), str(LOC.relative_to(ROOT))],
+        "model_version": 2,
+        "generated_from": [
+            str(WAITS.relative_to(ROOT)),
+            str(EVENTS.relative_to(ROOT)),
+            str(LOC.relative_to(ROOT)),
+        ],
         "assumptions": {
-            "parade_duration_min": DEFAULT_PARADE_DURATION_MIN,
-            "passage_offsets_min": DEFAULT_PASSAGE_OFFSETS,
-            "wait_lookup_tolerance_min": 20,
+            "parade_duration_min": parade_duration,
+            "passage_offsets_min": passage_offsets,
+            "wait_lookup_tolerance_min": WAIT_LOOKUP_TOLERANCE_MIN,
             "effective_cost_formula": "walk_min + posted_wait_min",
-            "note": "Walking times and intermediate parade passage offsets are planning estimates pending calibration."
+            "note": "Walking times and intermediate parade passage offsets remain planning estimates pending calibration.",
         },
-        "parties": []
+        "parties": [],
     }
 
-    for date in party_dates:
-        day_rows = [r for r in waits if r.get("party_date") == date]
-        starts = parade_starts(events, date)
-        party_out = {"party_date": date, "parades": []}
-        for start in starts:
+    for party_date in party_dates:
+        day_rows = [r for r in waits if r.get("party_date") == party_date]
+        party_out = {"party_date": party_date, "parades": []}
+
+        for start in parade_starts(events, party_date):
             parade_out = {"start_time": start.isoformat(), "viewing_zones": []}
+
             for view_zone in viewing_zones:
-                if view_zone not in DEFAULT_PASSAGE_OFFSETS:
+                if view_zone not in passage_offsets:
                     continue
-                arrival = start + timedelta(minutes=DEFAULT_PASSAGE_OFFSETS[view_zone])
-                clear = arrival + timedelta(minutes=DEFAULT_PARADE_DURATION_MIN)
+
+                arrival = start + timedelta(minutes=passage_offsets[view_zone])
+                clear = arrival + timedelta(minutes=parade_duration)
                 options = []
+
                 for ride, ride_zone in attraction_zone.items():
                     walk = shortest_walk(graph, view_zone, ride_zone)
                     if walk is None:
                         continue
+
                     ride_arrival = clear + timedelta(minutes=walk)
                     wait = nearest_wait(day_rows, ride, ride_arrival)
                     if not wait:
                         continue
+
                     effective = walk + wait["posted_wait_min"]
-                    options.append({
-                        "ride": ride,
-                        "ride_zone": ride_zone,
-                        "walk_min": round(walk, 1),
-                        "estimated_ride_arrival": ride_arrival.isoformat(),
-                        "wait_snapshot_time": wait["snapshot_time"],
-                        "posted_wait_min": wait["posted_wait_min"],
-                        "effective_cost_min": round(effective, 1)
-                    })
-                options.sort(key=lambda x: (x["effective_cost_min"], x["posted_wait_min"], x["walk_min"]))
-                parade_out["viewing_zones"].append({
-                    "viewing_zone": view_zone,
-                    "estimated_parade_arrival": arrival.isoformat(),
-                    "estimated_parade_clear": clear.isoformat(),
-                    "best_next_rides": options[:8]
-                })
-            parade_out["viewing_zones"].sort(key=lambda x: DEFAULT_PASSAGE_OFFSETS[x["viewing_zone"]])
+                    options.append(
+                        {
+                            "ride": ride,
+                            "ride_zone": ride_zone,
+                            "walk_min": round(walk, 1),
+                            "estimated_ride_arrival": ride_arrival.isoformat(),
+                            "wait_snapshot_time": wait["snapshot_time"],
+                            "wait_snapshot_delta_min": wait["snapshot_delta_min"],
+                            "posted_wait_min": wait["posted_wait_min"],
+                            "effective_cost_min": round(effective, 1),
+                        }
+                    )
+
+                options.sort(
+                    key=lambda x: (
+                        x["effective_cost_min"],
+                        x["posted_wait_min"],
+                        x["walk_min"],
+                    )
+                )
+                parade_out["viewing_zones"].append(
+                    {
+                        "viewing_zone": view_zone,
+                        "estimated_parade_arrival": arrival.isoformat(),
+                        "estimated_parade_clear": clear.isoformat(),
+                        "best_next_rides": options[:8],
+                    }
+                )
+
+            parade_out["viewing_zones"].sort(
+                key=lambda x: passage_offsets[x["viewing_zone"]]
+            )
             party_out["parades"].append(parade_out)
+
         result["parties"].append(party_out)
 
     OUT.write_text(json.dumps(result, indent=2), encoding="utf-8")
