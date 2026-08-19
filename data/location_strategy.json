@@ -1,0 +1,1083 @@
+{
+  "model_version": 2,
+  "generated_from": [
+    "data/magic_kingdom_waits.csv",
+    "data/party_events.csv",
+    "data/location_reference.json"
+  ],
+  "assumptions": {
+    "parade_duration_min": 20.0,
+    "passage_offsets_min": {
+      "frontierland_west": 0.0,
+      "frontierland_east": 2.0,
+      "liberty_square": 5.0,
+      "hub": 8.0,
+      "main_street": 10.0,
+      "town_square": 13.0
+    },
+    "wait_lookup_tolerance_min": 20,
+    "effective_cost_formula": "walk_min + posted_wait_min",
+    "note": "Walking times and intermediate parade passage offsets remain planning estimates pending calibration."
+  },
+  "parties": [
+    {
+      "party_date": "2026-08-18",
+      "parades": [
+        {
+          "start_time": "2026-08-18T20:15:00-04:00",
+          "viewing_zones": [
+            {
+              "viewing_zone": "frontierland_west",
+              "estimated_parade_arrival": "2026-08-18T20:15:00-04:00",
+              "estimated_parade_clear": "2026-08-18T20:35:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Tiana's Bayou Adventure",
+                  "ride_zone": "frontierland_west",
+                  "walk_min": 0.0,
+                  "estimated_ride_arrival": "2026-08-18T20:35:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:30:16.318949-04:00",
+                  "wait_snapshot_delta_min": 4.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 5.0
+                },
+                {
+                  "ride": "Big Thunder Mountain Railroad",
+                  "ride_zone": "frontierland_west",
+                  "walk_min": 0.0,
+                  "estimated_ride_arrival": "2026-08-18T20:35:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:30:16.318949-04:00",
+                  "wait_snapshot_delta_min": 4.7,
+                  "posted_wait_min": 10.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T20:43:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 2.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T20:43:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 2.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T20:43:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 2.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 11.0,
+                  "estimated_ride_arrival": "2026-08-18T20:46:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 0.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 16.0
+                },
+                {
+                  "ride": "The Many Adventures of Winnie the Pooh",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 16.0,
+                  "estimated_ride_arrival": "2026-08-18T20:51:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 5.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 21.0
+                },
+                {
+                  "ride": "Dumbo the Flying Elephant",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 16.0,
+                  "estimated_ride_arrival": "2026-08-18T20:51:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 5.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 21.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "frontierland_east",
+              "estimated_parade_arrival": "2026-08-18T20:17:00-04:00",
+              "estimated_parade_clear": "2026-08-18T20:37:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T20:41:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 4.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T20:41:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 4.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T20:41:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 4.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T20:44:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 1.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "The Many Adventures of Winnie the Pooh",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 12.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 17.0
+                },
+                {
+                  "ride": "Dumbo the Flying Elephant",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 12.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 17.0
+                },
+                {
+                  "ride": "The Barnstormer",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 12.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 17.0
+                },
+                {
+                  "ride": "Mad Tea Party",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 12.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 17.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "liberty_square",
+              "estimated_parade_arrival": "2026-08-18T20:20:00-04:00",
+              "estimated_parade_clear": "2026-08-18T20:40:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T20:44:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 1.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T20:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 1.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T20:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 1.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T20:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 1.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "The Many Adventures of Winnie the Pooh",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "Dumbo the Flying Elephant",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "The Barnstormer",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "Mad Tea Party",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "hub",
+              "estimated_parade_arrival": "2026-08-18T20:23:00-04:00",
+              "estimated_parade_clear": "2026-08-18T20:43:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T20:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 1.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 5.0,
+                  "estimated_ride_arrival": "2026-08-18T20:48:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 2.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 5.0,
+                  "estimated_ride_arrival": "2026-08-18T20:48:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 2.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 5.0,
+                  "estimated_ride_arrival": "2026-08-18T20:48:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 2.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "Tomorrowland Speedway",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 6.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 11.0
+                },
+                {
+                  "ride": "Astro Orbiter",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 6.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:30:16.318949-04:00",
+                  "wait_snapshot_delta_min": 18.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 11.0
+                },
+                {
+                  "ride": "Tomorrowland Transit Authority PeopleMover",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 6.0,
+                  "estimated_ride_arrival": "2026-08-18T20:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 3.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 11.0
+                },
+                {
+                  "ride": "The Many Adventures of Winnie the Pooh",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T20:52:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T20:45:13.735109-04:00",
+                  "wait_snapshot_delta_min": 6.8,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "main_street",
+              "estimated_parade_arrival": "2026-08-18T20:25:00-04:00",
+              "estimated_parade_clear": "2026-08-18T20:45:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T20:53:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 7.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T20:54:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 6.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T20:54:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 6.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T20:54:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 6.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "Tomorrowland Transit Authority PeopleMover",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 10.0,
+                  "estimated_ride_arrival": "2026-08-18T20:55:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 5.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 15.0
+                },
+                {
+                  "ride": "Dumbo the Flying Elephant",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-18T20:58:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 2.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                },
+                {
+                  "ride": "The Barnstormer",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-18T20:58:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 2.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                },
+                {
+                  "ride": "Mad Tea Party",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-18T20:58:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 2.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "town_square",
+              "estimated_parade_arrival": "2026-08-18T20:28:00-04:00",
+              "estimated_parade_clear": "2026-08-18T20:48:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 12.0,
+                  "estimated_ride_arrival": "2026-08-18T21:00:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 0.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 17.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-18T21:01:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 0.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-18T21:01:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 0.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-18T21:01:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 0.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                },
+                {
+                  "ride": "Astro Orbiter",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 14.0,
+                  "estimated_ride_arrival": "2026-08-18T21:02:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:15:14.342950-04:00",
+                  "wait_snapshot_delta_min": 13.2,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 19.0
+                },
+                {
+                  "ride": "Tomorrowland Transit Authority PeopleMover",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 14.0,
+                  "estimated_ride_arrival": "2026-08-18T21:02:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 1.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 19.0
+                },
+                {
+                  "ride": "Dumbo the Flying Elephant",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 17.0,
+                  "estimated_ride_arrival": "2026-08-18T21:05:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 4.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 22.0
+                },
+                {
+                  "ride": "The Barnstormer",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 17.0,
+                  "estimated_ride_arrival": "2026-08-18T21:05:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T21:00:17.636086-04:00",
+                  "wait_snapshot_delta_min": 4.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 22.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "start_time": "2026-08-18T23:15:00-04:00",
+          "viewing_zones": [
+            {
+              "viewing_zone": "frontierland_west",
+              "estimated_parade_arrival": "2026-08-18T23:15:00-04:00",
+              "estimated_parade_clear": "2026-08-18T23:35:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Tiana's Bayou Adventure",
+                  "ride_zone": "frontierland_west",
+                  "walk_min": 0.0,
+                  "estimated_ride_arrival": "2026-08-18T23:35:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:30:17.446846-04:00",
+                  "wait_snapshot_delta_min": 4.7,
+                  "posted_wait_min": 10.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "Big Thunder Mountain Railroad",
+                  "ride_zone": "frontierland_west",
+                  "walk_min": 0.0,
+                  "estimated_ride_arrival": "2026-08-18T23:35:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:30:17.446846-04:00",
+                  "wait_snapshot_delta_min": 4.7,
+                  "posted_wait_min": 10.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T23:43:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 2.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T23:43:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 2.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T23:43:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 2.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "Peter Pan's Flight",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 11.0,
+                  "estimated_ride_arrival": "2026-08-18T23:46:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 0.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 16.0
+                },
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 11.0,
+                  "estimated_ride_arrival": "2026-08-18T23:46:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 0.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 16.0
+                },
+                {
+                  "ride": "The Many Adventures of Winnie the Pooh",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 16.0,
+                  "estimated_ride_arrival": "2026-08-18T23:51:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 5.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 21.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "frontierland_east",
+              "estimated_parade_arrival": "2026-08-18T23:17:00-04:00",
+              "estimated_parade_clear": "2026-08-18T23:37:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:41:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 4.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:41:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 4.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:41:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 4.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Peter Pan's Flight",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T23:44:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T23:44:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "Tiana's Bayou Adventure",
+                  "ride_zone": "frontierland_west",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:41:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 4.3,
+                  "posted_wait_min": 10.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "Big Thunder Mountain Railroad",
+                  "ride_zone": "frontierland_west",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:41:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 4.3,
+                  "posted_wait_min": 10.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "The Many Adventures of Winnie the Pooh",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 12.0,
+                  "estimated_ride_arrival": "2026-08-18T23:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 3.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 17.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "liberty_square",
+              "estimated_parade_arrival": "2026-08-18T23:20:00-04:00",
+              "estimated_parade_clear": "2026-08-18T23:40:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Peter Pan's Flight",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:44:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:44:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.3,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T23:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T23:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 7.0,
+                  "estimated_ride_arrival": "2026-08-18T23:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 12.0
+                },
+                {
+                  "ride": "The Many Adventures of Winnie the Pooh",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T23:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 3.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "Dumbo the Flying Elephant",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T23:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 3.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "The Barnstormer",
+                  "ride_zone": "fantasyland_east",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T23:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 3.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "hub",
+              "estimated_parade_arrival": "2026-08-18T23:23:00-04:00",
+              "estimated_parade_clear": "2026-08-18T23:43:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Peter Pan's Flight",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 4.0,
+                  "estimated_ride_arrival": "2026-08-18T23:47:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 1.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 9.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 5.0,
+                  "estimated_ride_arrival": "2026-08-18T23:48:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 2.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 5.0,
+                  "estimated_ride_arrival": "2026-08-18T23:48:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 2.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 5.0,
+                  "estimated_ride_arrival": "2026-08-18T23:48:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 2.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 10.0
+                },
+                {
+                  "ride": "Tomorrowland Speedway",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 6.0,
+                  "estimated_ride_arrival": "2026-08-18T23:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 3.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 11.0
+                },
+                {
+                  "ride": "Astro Orbiter",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 6.0,
+                  "estimated_ride_arrival": "2026-08-18T23:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 3.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 11.0
+                },
+                {
+                  "ride": "Tomorrowland Transit Authority PeopleMover",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 6.0,
+                  "estimated_ride_arrival": "2026-08-18T23:49:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 3.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 11.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "main_street",
+              "estimated_parade_arrival": "2026-08-18T23:25:00-04:00",
+              "estimated_parade_clear": "2026-08-18T23:45:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Peter Pan's Flight",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T23:53:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 7.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 8.0,
+                  "estimated_ride_arrival": "2026-08-18T23:53:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 7.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 13.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T23:54:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 8.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T23:54:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 8.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 9.0,
+                  "estimated_ride_arrival": "2026-08-18T23:54:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 8.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 14.0
+                },
+                {
+                  "ride": "Tomorrowland Speedway",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 10.0,
+                  "estimated_ride_arrival": "2026-08-18T23:55:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 9.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 15.0
+                },
+                {
+                  "ride": "Astro Orbiter",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 10.0,
+                  "estimated_ride_arrival": "2026-08-18T23:55:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 9.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 15.0
+                },
+                {
+                  "ride": "Tomorrowland Transit Authority PeopleMover",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 10.0,
+                  "estimated_ride_arrival": "2026-08-18T23:55:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 9.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 15.0
+                }
+              ]
+            },
+            {
+              "viewing_zone": "town_square",
+              "estimated_parade_arrival": "2026-08-18T23:28:00-04:00",
+              "estimated_parade_clear": "2026-08-18T23:48:00-04:00",
+              "best_next_rides": [
+                {
+                  "ride": "Peter Pan's Flight",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 12.0,
+                  "estimated_ride_arrival": "2026-08-19T00:00:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 14.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 17.0
+                },
+                {
+                  "ride": "Prince Charming Regal Carrousel",
+                  "ride_zone": "fantasyland_west",
+                  "walk_min": 12.0,
+                  "estimated_ride_arrival": "2026-08-19T00:00:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 14.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 17.0
+                },
+                {
+                  "ride": "Pirates of the Caribbean",
+                  "ride_zone": "adventureland",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-19T00:01:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 15.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                },
+                {
+                  "ride": "Jungle Cruise",
+                  "ride_zone": "adventureland",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-19T00:01:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 15.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                },
+                {
+                  "ride": "The Magic Carpets of Aladdin",
+                  "ride_zone": "adventureland",
+                  "walk_min": 13.0,
+                  "estimated_ride_arrival": "2026-08-19T00:01:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 15.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 18.0
+                },
+                {
+                  "ride": "Tomorrowland Speedway",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 14.0,
+                  "estimated_ride_arrival": "2026-08-19T00:02:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 16.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 19.0
+                },
+                {
+                  "ride": "Astro Orbiter",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 14.0,
+                  "estimated_ride_arrival": "2026-08-19T00:02:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 16.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 19.0
+                },
+                {
+                  "ride": "Tomorrowland Transit Authority PeopleMover",
+                  "ride_zone": "tomorrowland",
+                  "walk_min": 14.0,
+                  "estimated_ride_arrival": "2026-08-19T00:02:00-04:00",
+                  "wait_snapshot_time": "2026-08-18T23:45:15.267940-04:00",
+                  "wait_snapshot_delta_min": 16.7,
+                  "posted_wait_min": 5.0,
+                  "effective_cost_min": 19.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
