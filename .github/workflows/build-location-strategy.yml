@@ -8,6 +8,7 @@ on:
       - 'data/party_events.csv'
       - 'data/location_reference.json'
       - 'scripts/location_strategy.py'
+      - '.github/workflows/build-location-strategy.yml'
   workflow_dispatch:
 
 permissions:
@@ -29,7 +30,7 @@ jobs:
         run: python scripts/location_strategy.py
       - name: Commit generated strategy
         run: |
-          if git diff --quiet -- data/location_strategy.json; then
+          if [ -z "$(git status --porcelain -- data/location_strategy.json)" ]; then
             echo "No strategy changes"
             exit 0
           fi
