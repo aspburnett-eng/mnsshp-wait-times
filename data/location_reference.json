@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "park": "Magic Kingdom",
+  "zones": [
+    {"id":"town_square","name":"Town Square","land":"Main Street, U.S.A.","type":"viewing_zone"},
+    {"id":"main_street","name":"Main Street, U.S.A.","land":"Main Street, U.S.A.","type":"viewing_zone"},
+    {"id":"hub","name":"Cinderella Castle Hub","land":"Central Plaza","type":"viewing_zone"},
+    {"id":"liberty_square","name":"Liberty Square","land":"Liberty Square","type":"viewing_zone"},
+    {"id":"frontierland_east","name":"Frontierland East","land":"Frontierland","type":"viewing_zone"},
+    {"id":"frontierland_west","name":"Frontierland West","land":"Frontierland","type":"attraction_cluster"},
+    {"id":"adventureland","name":"Adventureland","land":"Adventureland","type":"attraction_cluster"},
+    {"id":"fantasyland_west","name":"Fantasyland West","land":"Fantasyland","type":"attraction_cluster"},
+    {"id":"fantasyland_east","name":"Fantasyland East","land":"Fantasyland","type":"attraction_cluster"},
+    {"id":"tomorrowland","name":"Tomorrowland","land":"Tomorrowland","type":"attraction_cluster"}
+  ],
+  "attractions": [
+    {"name":"TRON Lightcycle / Run","zone":"tomorrowland"},
+    {"name":"Space Mountain","zone":"tomorrowland"},
+    {"name":"Buzz Lightyear's Space Ranger Spin","zone":"tomorrowland"},
+    {"name":"Tomorrowland Speedway","zone":"tomorrowland"},
+    {"name":"Astro Orbiter","zone":"tomorrowland"},
+    {"name":"Tomorrowland Transit Authority PeopleMover","zone":"tomorrowland"},
+    {"name":"Monsters Inc. Laugh Floor","zone":"tomorrowland"},
+    {"name":"Tiana's Bayou Adventure","zone":"frontierland_west"},
+    {"name":"Big Thunder Mountain Railroad","zone":"frontierland_west"},
+    {"name":"Country Bear Musical Jamboree","zone":"frontierland_east"},
+    {"name":"Haunted Mansion","zone":"liberty_square"},
+    {"name":"The Hall of Presidents","zone":"liberty_square"},
+    {"name":"Pirates of the Caribbean","zone":"adventureland"},
+    {"name":"Jungle Cruise","zone":"adventureland"},
+    {"name":"The Magic Carpets of Aladdin","zone":"adventureland"},
+    {"name":"Walt Disney's Enchanted Tiki Room","zone":"adventureland"},
+    {"name":"Peter Pan's Flight","zone":"fantasyland_west"},
+    {"name":"it's a small world","zone":"fantasyland_west"},
+    {"name":"The Many Adventures of Winnie the Pooh","zone":"fantasyland_east"},
+    {"name":"Seven Dwarfs Mine Train","zone":"fantasyland_east"},
+    {"name":"Under the Sea ~ Journey of The Little Mermaid","zone":"fantasyland_east"},
+    {"name":"Dumbo the Flying Elephant","zone":"fantasyland_east"},
+    {"name":"The Barnstormer","zone":"fantasyland_east"},
+    {"name":"Mad Tea Party","zone":"fantasyland_east"},
+    {"name":"Prince Charming Regal Carrousel","zone":"fantasyland_west"}
+  ],
+  "parades": {
+    "Mickey's Boo-To-You Halloween Parade": {
+      "direction":"Frontierland to Town Square",
+      "route_order":["frontierland_west","frontierland_east","liberty_square","hub","main_street","town_square"],
+      "route_note":"Model route order only. Passage offsets by zone will be calibrated separately from observed or published timings."
+    }
+  },
+  "movement_edges": [
+    {"from":"frontierland_west","to":"frontierland_east","base_walk_min":4},
+    {"from":"frontierland_east","to":"liberty_square","base_walk_min":3},
+    {"from":"liberty_square","to":"hub","base_walk_min":4},
+    {"from":"hub","to":"main_street","base_walk_min":4},
+    {"from":"main_street","to":"town_square","base_walk_min":4},
+    {"from":"frontierland_east","to":"adventureland","base_walk_min":4},
+    {"from":"adventureland","to":"hub","base_walk_min":5},
+    {"from":"hub","to":"fantasyland_west","base_walk_min":4},
+    {"from":"fantasyland_west","to":"fantasyland_east","base_walk_min":5},
+    {"from":"fantasyland_east","to":"tomorrowland","base_walk_min":5},
+    {"from":"tomorrowland","to":"hub","base_walk_min":6},
+    {"from":"liberty_square","to":"fantasyland_west","base_walk_min":4}
+  ],
+  "model_notes": [
+    "Walking times are first-pass planning estimates and should be calibrated before recommendations are treated as precise.",
+    "Parade-route interference will be modeled as a time-dependent movement penalty, not a static closure.",
+    "Attraction-zone mapping is static reference data and is intentionally kept separate from 15-minute wait snapshots."
+  ]
+}
