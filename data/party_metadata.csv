@@ -1,9 +1,9 @@
-party_date,sold_out,status_checked_at,source
-2026-08-18,,,
-2026-08-21,,,
-2026-08-23,,,
-2026-08-25,,,
-2026-08-28,,,
-2026-08-30,,,
-2026-09-01,,,
-2026-09-04,,,
+party_date,sold_out,availability_status,status_checked_at,source,sold_out_date
+2026-08-18,TRUE,SOLD_OUT,2026-08-22T09:35:00-04:00,Public ticket-availability reporting citing Walt Disney World,2026-07-14
+2026-08-21,TRUE,SOLD_OUT,2026-08-22T09:35:00-04:00,Public ticket-availability reporting citing Walt Disney World,2026-08-06
+2026-08-23,TRUE,SOLD_OUT,2026-08-22T09:35:00-04:00,Public ticket-availability reporting citing Walt Disney World,2026-08-18
+2026-08-25,FALSE,AVAILABLE,2026-08-22T09:35:00-04:00,Public ticket-availability reporting citing Walt Disney World,
+2026-08-28,FALSE,AVAILABLE,2026-08-22T09:35:00-04:00,Public ticket-availability reporting citing Walt Disney World,
+2026-08-30,FALSE,AVAILABLE,2026-08-22T09:35:00-04:00,Public ticket-availability reporting citing Walt Disney World,
+2026-09-01,FALSE,AVAILABLE,2026-08-22T09:35:00-04:00,Public ticket-availability reporting citing Walt Disney World,
+2026-09-04,TRUE,SOLD_OUT,2026-08-22T09:35:00-04:00,Public ticket-availability reporting citing Walt Disney World,
